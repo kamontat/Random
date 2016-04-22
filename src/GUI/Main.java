@@ -57,14 +57,14 @@ public class Main extends JDialog {
 		randomCanDuplicateButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				runRandomPage();
+				runRandomPage("Random(Can Duplicate)");
 			}
 		});
 
 		randomNotDuplicateButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				runRandomPage();
+				runRandomPage("Random(Can't Duplicate)");
 			}
 		});
 	}
@@ -89,8 +89,8 @@ public class Main extends JDialog {
 		}
 	}
 
-	private void runRandomPage() {
-		RandomPage page = new RandomPage(Double.parseDouble(textField1.getText()), Double.parseDouble(textField2.getText()));
+	private void runRandomPage(String text) {
+		RandomPage page = new RandomPage(text, Double.parseDouble(textField1.getText()), Double.parseDouble(textField2.getText()));
 		page.run();
 	}
 

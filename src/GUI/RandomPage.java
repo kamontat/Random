@@ -17,12 +17,16 @@ public class RandomPage extends JDialog {
 	private JButton exitButton;
 	private Random random;
 
-	public RandomPage(double st, double nd) {
+	public RandomPage(String text, double st, double nd) {
+		setTitle(text);
 		setContentPane(contentPane);
 		setModal(true);
 
 		random = new Random(st, nd);
-		random.randomNotSame();
+
+		if (text.equals("Random(Can Duplicate)")) random.randomNotSame();
+		else if (text.equals("Random(Can't Duplicate)")) random.randomNotSame();
+
 		updateJList();
 
 		list1.setAutoscrolls(true);
@@ -37,7 +41,9 @@ public class RandomPage extends JDialog {
 		againButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				random.randomNotSame();
+				if (text.equals("Random(Can Duplicate)")) random.randomSame();
+				else if (text.equals("Random(Can't Duplicate)")) random.randomNotSame();
+
 				updateJList();
 			}
 		});
