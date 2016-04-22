@@ -5,7 +5,6 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.*;
 
 public class Main extends JDialog {
 	private JPanel contentPane;
@@ -58,72 +57,63 @@ public class Main extends JDialog {
 		randomCanDuplicateButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				RandomPage page = new RandomPage();
-				page.run();
+				runRandomPage();
 			}
 		});
 
 		randomNotDuplicateButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				RandomPage page = new RandomPage();
-				page.run();
+				runRandomPage();
 			}
 		});
 	}
 
+	public void run() {
+		pack();
+		setVisible(true);
+	}
+
 	private void warn() {
-		if (checkNumberIn(textField1.getText()) && checkNumberIn(textField2.getText())) {
-			randomCanDuplicateButton.setEnabled(true);
-			randomNotDuplicateButton.setEnabled(true);
+		if (isAllNumberIn(textField1.getText()) && isAllNumberIn(textField2.getText())) {
+			if (Double.parseDouble(textField1.getText()) <= Double.parseDouble(textField2.getText())) {
+				randomCanDuplicateButton.setEnabled(true);
+				randomNotDuplicateButton.setEnabled(true);
+			} else {
+				randomCanDuplicateButton.setEnabled(false);
+				randomNotDuplicateButton.setEnabled(false);
+			}
 		} else {
 			randomCanDuplicateButton.setEnabled(false);
 			randomNotDuplicateButton.setEnabled(false);
 		}
 	}
 
-	private int randomWith(int first, int second) {
-		int rand = (int) Math.ceil(Math.random() * second);
-		while (rand < first) {
-			rand = (int) Math.ceil(Math.random() * second);
-		}
-		return rand;
+	private void runRandomPage() {
+		RandomPage page = new RandomPage(Double.parseDouble(textField1.getText()), Double.parseDouble(textField2.getText()));
+		page.run();
 	}
 
-	private double randomWith(double first, double second) {
-		double rand = Math.random() * second;
-		while (rand < first) {
-			rand = Math.random() * second;
-		}
-		return rand;
-	}
-
-	private void randomNotSameWith(double number) {
-		ArrayList<Double> listRandoms = new ArrayList<>();
-	}
-
-	private Boolean checkNumberIn(String input) {
+	private Boolean isAllNumberIn(String input) {
 		// if input is emply String
 		if (input.length() == 0) return false;
-
-		int[] numbers = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+		Boolean checkDot = false;
+		Character[] except = new Character[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'};
+		// check every char in input String
 		for (int i = 0; i < input.length(); i++) {
 			char aChar = input.charAt(i);
 			Boolean checkNumber = false;
-
-			for (int j = 0; j < numbers.length; j++) {
-				if (Character.getNumericValue(aChar) == numbers[j]) {
+			if (aChar == '.' && !checkDot) checkDot = true;
+			else if (aChar == '.') return false;
+			for (Character exceptChar : except) {
+				if (aChar == exceptChar) {
 					checkNumber = true;
 				}
 			}
+			// if have alphabel at least 1 program will return false
 			if (!checkNumber) return false;
 		}
 		return true;
-	}
-
-	public void run() {
-		pack();
-		setVisible(true);
 	}
 
 	public static void main(String[] args) {

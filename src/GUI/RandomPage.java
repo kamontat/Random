@@ -1,5 +1,7 @@
 package GUI;
 
+import Code.Random;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,17 +12,33 @@ import java.awt.event.ActionListener;
 public class RandomPage extends JDialog {
 
 	private JPanel contentPane;
-	private JList list1;
+	private JList<String> list1;
 	private JButton againButton;
 	private JButton exitButton;
+	private Random random;
 
-	public RandomPage() {
+	public RandomPage(double st, double nd) {
 		setContentPane(contentPane);
 		setModal(true);
+
+		random = new Random(st, nd);
+		random.randomNotSame();
+		updateJList();
+
+		list1.setAutoscrolls(true);
+
 		exitButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
+			}
+		});
+
+		againButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				random.randomNotSame();
+				updateJList();
 			}
 		});
 	}
@@ -30,9 +48,7 @@ public class RandomPage extends JDialog {
 		setVisible(true);
 	}
 
-	public static void main(String[] args) {
-		RandomPage page = new RandomPage();
-		page.run();
-		System.exit(0);
+	private void updateJList() {
+		list1.setListData(random.getHistoryList());
 	}
 }
