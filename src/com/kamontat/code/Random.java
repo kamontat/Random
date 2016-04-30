@@ -1,4 +1,4 @@
-package Code;
+package com.kamontat.code;
 
 import java.util.*;
 

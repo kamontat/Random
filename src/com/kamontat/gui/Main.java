@@ -1,4 +1,4 @@
-package GUI;
+package com.kamontat.gui;
 
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
@@ -114,11 +114,5 @@ public class Main extends JDialog {
 			if (!checkNumber) return false;
 		}
 		return true;
-	}
-
-	public static void main(String[] args) {
-		Main dialog = new Main();
-		dialog.run();
-		System.exit(0);
 	}
 }

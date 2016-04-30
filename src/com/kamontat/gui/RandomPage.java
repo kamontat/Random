@@ -1,6 +1,6 @@
-package GUI;
+package com.kamontat.gui;
 
-import Code.Random;
+import com.kamontat.code.Random;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
