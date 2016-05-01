@@ -36,6 +36,7 @@
           <component id="13d81" class="javax.swing.JList" binding="list1" default-binding="true">
             <constraints/>
             <properties>
+              <font size="20"/>
               <layoutOrientation value="0"/>
               <model/>
             </properties>
