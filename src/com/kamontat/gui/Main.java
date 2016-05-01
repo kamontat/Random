@@ -3,8 +3,6 @@ package com.kamontat.gui;
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class Main extends JDialog {
 	private JPanel contentPane;
@@ -54,19 +52,9 @@ public class Main extends JDialog {
 			}
 		});
 
-		randomCanDuplicateButton.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				runRandomPage("Random(Can Duplicate)");
-			}
-		});
+		randomCanDuplicateButton.addActionListener(e -> runRandomPage("Random(Can Duplicate)"));
 
-		randomNotDuplicateButton.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				runRandomPage("Random(Can't Duplicate)");
-			}
-		});
+		randomNotDuplicateButton.addActionListener(e -> runRandomPage("Random(Can't Duplicate)"));
 	}
 
 	public void run() {
@@ -95,7 +83,7 @@ public class Main extends JDialog {
 	}
 
 	private Boolean isAllNumberIn(String input) {
-		// if input is emply String
+		// if input is empty String
 		if (input.length() == 0) return false;
 		Boolean checkDot = false;
 		Character[] except = new Character[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'};
@@ -110,7 +98,7 @@ public class Main extends JDialog {
 					checkNumber = true;
 				}
 			}
-			// if have alphabel at least 1 program will return false
+			// if have alphabet at least 1 program will return false
 			if (!checkNumber) return false;
 		}
 		return true;

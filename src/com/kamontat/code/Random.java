@@ -97,8 +97,13 @@ public class Random {
 	}
 
 	public void recordToHistory() {
-		if (randNum % 1 == 0) historys.add((int) randNum);
-		else historys.add(randNum);
+		// if don't have number anymore
+		if (randNum == -99) {
+			randNum = 0;
+		} else {
+			if (randNum % 1 == 0) historys.add((int) randNum);
+			else historys.add(randNum);
+		}
 	}
 
 	public String[] getHistoryList() {
