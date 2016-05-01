@@ -15,6 +15,7 @@ public class RandomPage extends JDialog {
 	private JList<String> list1;
 	private JButton againButton;
 	private JButton exitButton;
+	private JLabel lastNumber;
 	private Random random;
 
 	public RandomPage(String text, double st, double nd) {
@@ -27,7 +28,7 @@ public class RandomPage extends JDialog {
 		if (text.equals("Random(Can Duplicate)")) random.randomNotSame();
 		else if (text.equals("Random(Can't Duplicate)")) random.randomNotSame();
 
-		updateJList();
+		updatePage();
 
 		list1.setAutoscrolls(true);
 
@@ -44,7 +45,8 @@ public class RandomPage extends JDialog {
 				if (text.equals("Random(Can Duplicate)")) random.randomSame();
 				else if (text.equals("Random(Can't Duplicate)")) random.randomNotSame();
 
-				updateJList();
+				updatePage();
+				pack();
 			}
 		});
 	}
@@ -54,7 +56,8 @@ public class RandomPage extends JDialog {
 		setVisible(true);
 	}
 
-	private void updateJList() {
+	private void updatePage() {
+		lastNumber.setText(String.valueOf(random.getRand()));
 		list1.setListData(random.getHistoryList());
 	}
 }

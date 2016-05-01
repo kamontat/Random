@@ -23,6 +23,10 @@ public class Random {
 		}
 	}
 
+	public double getRand() {
+		return randNum;
+	}
+
 	public int randomWith(int first, int second) {
 
 		int rand = (int) Math.ceil(Math.random() * second);
@@ -95,7 +99,6 @@ public class Random {
 	public void recordToHistory() {
 		if (randNum % 1 == 0) historys.add((int) randNum);
 		else historys.add(randNum);
-		randNum = 0;
 	}
 
 	public String[] getHistoryList() {
