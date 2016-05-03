@@ -3,14 +3,14 @@ package com.kamontat.gui;
 import com.kamontat.code.Random;
 
 import javax.swing.*;
+import java.awt.*;
 
 /**
  * Created by kamontat on 20/4/59.
  */
 public class RandomPage extends JDialog {
-
 	private JPanel contentPane;
-	private JList<String> list1;
+	private JList<String> list;
 	private JButton againButton;
 	private JButton exitButton;
 	private JLabel lastNumber;
@@ -29,8 +29,6 @@ public class RandomPage extends JDialog {
 
 		updatePage();
 
-		list1.setAutoscrolls(true);
-
 		exitButton.addActionListener(e -> setVisible(false));
 
 		againButton.addActionListener(e -> {
@@ -42,14 +40,15 @@ public class RandomPage extends JDialog {
 		});
 	}
 
-	public void run() {
+	public void run(Point point) {
 		pack();
+		setLocation(point);
 		setVisible(true);
 	}
 
 	private void updatePage() {
 		count.setText("(" + random.getHistoryList().length + ")");
 		lastNumber.setText(String.valueOf(random.getRand()));
-		list1.setListData(random.getHistoryList());
+		list.setListData(random.getHistoryList());
 	}
 }

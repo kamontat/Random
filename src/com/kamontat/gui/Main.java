@@ -79,7 +79,7 @@ public class Main extends JDialog {
 
 	private void runRandomPage(String text) {
 		RandomPage page = new RandomPage(text, Double.parseDouble(textField1.getText()), Double.parseDouble(textField2.getText()));
-		page.run();
+		page.run(getLocation());
 	}
 
 	private Boolean isAllNumberIn(String input) {
