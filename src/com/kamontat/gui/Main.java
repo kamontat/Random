@@ -4,6 +4,9 @@ import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
+/**
+ * request Java version 8 or later
+ */
 public class Main extends JDialog {
 	private JPanel contentPane;
 	private JButton randomCanDuplicateButton;

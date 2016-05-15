@@ -34,7 +34,6 @@ public class RandomPage extends JDialog {
 		againButton.addActionListener(e -> {
 			if (text.equals("Random(Can Duplicate)")) random.randomSame();
 			else if (text.equals("Random(Can't Duplicate)")) random.randomNotSame();
-
 			updatePage();
 			pack();
 		});
