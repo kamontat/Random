@@ -9,11 +9,14 @@ So I create this program to use in different time and different way <br>
     - Random number with **can** duplicate number
     - Random number with **can't** duplicate number
 
+### Screenshots ###
+
+
 ### What is this repository for? ###
 
 - Random number in different time and different way
 
-### How to use this prgram ###
+### How to use this program ###
 
 1) Open folder called **Application**
 2) Double click in **XXX.jar** file
