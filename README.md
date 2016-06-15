@@ -10,7 +10,9 @@ So I create this program to use in different time and different way <br>
     - Random number with **can't** duplicate number
 
 ### Screenshots ###
-
+![](https://github.com/kamontat/Random/blob/master/src/com/kamontat/ScreenShots/Screen%20Shot%202559-06-15%20at%2022.17.46.png)
+![](https://github.com/kamontat/Random/blob/master/src/com/kamontat/ScreenShots/Screen%20Shot%202559-06-15%20at%2022.17.51.png)
+![](https://github.com/kamontat/Random/blob/master/src/com/kamontat/ScreenShots/Screen%20Shot%202559-06-15%20at%2022.17.54.png)
 
 ### What is this repository for? ###
 
